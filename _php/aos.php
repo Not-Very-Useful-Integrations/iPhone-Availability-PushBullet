@@ -67,24 +67,25 @@ function joinPaths() {
 $baseurl = 'http://store.apple.com/hk/buy-%s/%s?cppart=UNLOCKED/WW&product=%s/A&step=accessories';
 $arg0 = 'iphone';
 $arg1 = 'iphone6';
-$arg2 = array(	array('MG4A2ZP', 'iPhone 6 Space Grey 128G'), 
-				array('MG4C2ZP', 'iPhone 6 Silver 128G'),
-				array('MG4E2ZP', 'iPhone 6 Gold 128G'),
-				array('MG4F2ZP', 'iPhone 6 Space Grey 64G'), 
-				array('MG4H2ZP', 'iPhone 6 Silver 64G'),
-				array('MG4J2ZP', 'iPhone 6 Gold 64G'),
-				array('MG472ZP', 'iPhone 6 Space Grey 16G'), 
-				array('MG482ZP', 'iPhone 6 Silver 16G'),
-				array('MG492ZP', 'iPhone 6 Gold 16G'),
-				array('MGAC2ZP', 'iPhone 6 Plus Space Grey 128G'), 
-				array('MGAE2ZP', 'iPhone 6 Plus Silver 128G'),
-				array('MGAF2ZP', 'iPhone 6 Plus Gold 128G'),
-				array('MGAH2ZP', 'iPhone 6 Plus Space Grey 64G'), 
-				array('MGAJ2ZP', 'iPhone 6 Plus Silver 64G'),
-				array('MGAK2ZP', 'iPhone 6 Plus Gold 64G'),
-				array('MGA82ZP', 'iPhone 6 Plus Space Grey 16G'), 
-				array('MGA92ZP', 'iPhone 6 Plus Silver 16G'),
-				array('MGAA2ZP', 'iPhone 6 Plus Gold 16G') );
+$arg2 = array(	array('MGAC2ZP', 'iP 6+ Grey 128G'), 
+				array('MGAE2ZP', 'iP 6+ Silver 128G'),
+				array('MGAF2ZP', 'iP 6+ Gold 128G'),
+				array('MGAH2ZP', 'iP 6+ Grey 64G'), 
+				array('MGAJ2ZP', 'iP 6+ Silver 64G'),
+				array('MGAK2ZP', 'iP 6+ Gold 64G'),
+				array('MGA82ZP', 'iP 6+ Grey 16G'), 
+				array('MGA92ZP', 'iP 6+ Silver 16G'),
+				array('MGAA2ZP', 'iP 6+ Gold 16G'),
+array('MG4A2ZP', 'iP 6 Grey 128G'), 
+				array('MG4C2ZP', 'iP 6 Silver 128G'),
+				array('MG4E2ZP', 'iP 6 Gold 128G'),
+				array('MG4F2ZP', 'iP 6 Grey 64G'), 
+				array('MG4H2ZP', 'iP 6 Silver 64G'),
+				array('MG4J2ZP', 'iP 6 Gold 64G'),
+				array('MG472ZP', 'iP 6 Grey 16G'), 
+				array('MG482ZP', 'iP 6 Silver 16G'),
+				array('MG492ZP', 'iP 6 Gold 16G')
+				 );
 
 $pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 
 					'b5SpPpOe8B9CGb976YcQbm5nwiFCtVwV',
