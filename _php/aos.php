@@ -106,7 +106,7 @@ for($i = 0; $i < count($arg2); $i++) {
 	$exp = "//span[contains(@class, 'customer_commit_display')]";
 	$srcNodes = $xpath->query($exp);
 
-	if(!is_null($srcNodes) && count($srcNodes) > 0) {
+	if(!is_null($srcNodes) && $srcNodes->length > 0) {
 		$msg = $srcNodes->item(0)->nodeValue;
 		printf('%s: %s (<a href="%s">Link</a>) <br />', $arg2[$i][1], $msg, $eachUrl);
 
