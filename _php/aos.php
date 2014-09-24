@@ -76,7 +76,7 @@ $arg2 = array(	array('MGAC2ZP', 'iP 6+ Grey 128G'),
 				array('MGA82ZP', 'iP 6+ Grey 16G'), 
 				array('MGA92ZP', 'iP 6+ Silver 16G'),
 				array('MGAA2ZP', 'iP 6+ Gold 16G'),
-array('MG4A2ZP', 'iP 6 Grey 128G'), 
+				array('MG4A2ZP', 'iP 6 Grey 128G'), 
 				array('MG4C2ZP', 'iP 6 Silver 128G'),
 				array('MG4E2ZP', 'iP 6 Gold 128G'),
 				array('MG4F2ZP', 'iP 6 Grey 64G'), 
@@ -85,7 +85,7 @@ array('MG4A2ZP', 'iP 6 Grey 128G'),
 				array('MG472ZP', 'iP 6 Grey 16G'), 
 				array('MG482ZP', 'iP 6 Silver 16G'),
 				array('MG492ZP', 'iP 6 Gold 16G')
-				 );
+			);
 
 $pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 
 					'b5SpPpOe8B9CGb976YcQbm5nwiFCtVwV',
