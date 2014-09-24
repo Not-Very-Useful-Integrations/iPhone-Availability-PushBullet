@@ -10,6 +10,7 @@ $debug = false || ($_GET['debug'] == 1);
 // GOGOGO
 $json = file_get_contents('https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json');
 $obj = json_decode($json, true);
+$hit = false;
 
 foreach($obj as $store) {
 	foreach($store as $phone) {
@@ -25,6 +26,11 @@ foreach($obj as $store) {
 				$queryData['url'] = 'https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone';
 				push_content($pushUrl, $pushKey, 'POST', $queryData);
 			}
+			$hit = true;
+			break;
+		}
+
+		if($hit) {
 			break;
 		}
 	}
