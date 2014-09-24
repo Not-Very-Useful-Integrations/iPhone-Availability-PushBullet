@@ -29,10 +29,10 @@ foreach($obj as $store) {
 			$hit = true;
 			break;
 		}
+	}
 
-		if($hit) {
-			break;
-		}
+	if($hit) {
+		break;
 	}
 }
 
