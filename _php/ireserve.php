@@ -1,104 +1,43 @@
 <?php
 
 $phone_def = array(	
-	array('MGAA2ZP/A', '+GO 16'),
-	array('MGA92ZP/A', '+SV 16'),
-	array('MGA82ZP/A', '+GY 16'), 
-	array('MGAK2ZP/A', '+GO 64'),
-	array('MGAJ2ZP/A', '+SV 64'),
-	array('MGAH2ZP/A', '+GY 64'), 
-	array('MGAF2ZP/A', '+GO T8'),
-	array('MGAE2ZP/A', '+SV T8'),
-	array('MGAC2ZP/A', '+GY T8'), 
-	array('MG492ZP/A', '-GO 16'),
-	array('MG482ZP/A', '-SV 16'),
-	array('MG472ZP/A', '-GY 16'), 
-	array('MG4J2ZP/A', '-GO 64'),
-	array('MG4H2ZP/A', '-SV 64'),
-	array('MG4F2ZP/A', '-GY 64'), 
-	array('MG4E2ZP/A', '-GO T8'),
-	array('MG4C2ZP/A', '-SV T8'),
-	array('MG4A2ZP/A', '-GY T8')
+	array('MGAA2ZP/A', '+GO S'),
+	array('MGA92ZP/A', '+SV S'),
+	array('MGA82ZP/A', '+GY S'), 
+	array('MGAK2ZP/A', '+GO M'),
+	array('MGAJ2ZP/A', '+SV M'),
+	array('MGAH2ZP/A', '+GY M'), 
+	array('MGAF2ZP/A', '+GO L'),
+	array('MGAE2ZP/A', '+SV L'),
+	array('MGAC2ZP/A', '+GY L'), 
+	array('MG492ZP/A', '-GO S'),
+	array('MG482ZP/A', '-SV S'),
+	array('MG472ZP/A', '-GY S'), 
+	array('MG4J2ZP/A', '-GO M'),
+	array('MG4H2ZP/A', '-SV M'),
+	array('MG4F2ZP/A', '-GY M'), 
+	array('MG4E2ZP/A', '-GO L'),
+	array('MG4C2ZP/A', '-SV L'),
+	array('MG4A2ZP/A', '-GY L')
 );
 
 $store_def = array (
-	array('R485', 'FW'),
+	array('R485', 'KLT'),
 	array('R409', 'CWB'),
 	array('R428', 'IFC')
 );
 
-$pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k' );
+$pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 
+					'b5SpPpOe8B9CGb976YcQbm5nwiFCtVwV',
+					'v1D50EttDgOqwNaRmmLccqDPRbLgtef2oLujxOSx9N7n2',
+					'HjClrqRzVSPINuJNkqta2kgEvEmGo9j7',
+					'ZIN4eHIi4bxANrbftKsy2LCRIpcLA6Sg' );
 
 $pushUrl = 'https://api.pushbullet.com/v2/pushes';
 $debug = false || ($_GET['debug'] == 1);
 
 // GOGOGO
 $json = file_get_contents('https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json');
-
-$json = '{
-  "R485" : {
-    "MGAF2ZP/A" : false,
-    "MG492ZP/A" : false,
-    "MGAC2ZP/A" : false,
-    "MGA92ZP/A" : false,
-    "MG4F2ZP/A" : false,
-    "MG472ZP/A" : false,
-    "MG4A2ZP/A" : false,
-    "MGAK2ZP/A" : false,
-    "MGAA2ZP/A" : false,
-    "MG4J2ZP/A" : false,
-    "MGAJ2ZP/A" : false,
-    "MG4H2ZP/A" : false,
-    "MGAE2ZP/A" : false,
-    "MG4E2ZP/A" : false,
-    "MG482ZP/A" : false,
-    "MGAH2ZP/A" : false,
-    "MG4C2ZP/A" : false,
-    "MGA82ZP/A" : false
-  },
-  "R409" : {
-    "MGAF2ZP/A" : false,
-    "MG492ZP/A" : false,
-    "MGAC2ZP/A" : false,
-    "MGA92ZP/A" : false,
-    "MG4F2ZP/A" : false,
-    "MG472ZP/A" : true,
-    "MG4A2ZP/A" : false,
-    "MGAK2ZP/A" : false,
-    "MGAA2ZP/A" : false,
-    "MG4J2ZP/A" : false,
-    "MGAJ2ZP/A" : false,
-    "MG4H2ZP/A" : false,
-    "MGAE2ZP/A" : false,
-    "MG4E2ZP/A" : false,
-    "MG482ZP/A" : false,
-    "MGAH2ZP/A" : false,
-    "MG4C2ZP/A" : false,
-    "MGA82ZP/A" : false
-  },
-  "updated" : 1411198260116,
-  "R428" : {
-    "MGAF2ZP/A" : false,
-    "MG492ZP/A" : false,
-    "MGAC2ZP/A" : false,
-    "MGA92ZP/A" : false,
-    "MG4F2ZP/A" : false,
-    "MG472ZP/A" : false,
-    "MG4A2ZP/A" : false,
-    "MGAK2ZP/A" : false,
-    "MGAA2ZP/A" : false,
-    "MG4J2ZP/A" : false,
-    "MGAJ2ZP/A" : false,
-    "MG4H2ZP/A" : false,
-    "MGAE2ZP/A" : false,
-    "MG4E2ZP/A" : false,
-    "MG482ZP/A" : false,
-    "MGAH2ZP/A" : false,
-    "MG4C2ZP/A" : false,
-    "MGA82ZP/A" : false
-  }
-}';
-
 $obj = json_decode($json, true);
 $hit = false;
 
@@ -122,11 +61,12 @@ foreach($store_def as $store) {
 	}
 
 	if($pushMsg !== '') {
-		var_dump($store[1] . ':' . $pushMsg);
-		$queryData['type'] = 'link';
-		$queryData['title'] = $store[1] . ' ' . $pushMsg;
-		$queryData['url'] = 'https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone';
-		push_content($pushUrl, $pushKey, 'POST', $queryData);
+		foreach ($pushKeys as $pushKey) {
+			$queryData['type'] = 'link';
+			$queryData['title'] = $store[1] . " " . $pushMsg;
+			$queryData['url'] = 'https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone';
+			push_content($pushUrl, $pushKey, 'POST', $queryData);
+		}
 	}
 }
 
