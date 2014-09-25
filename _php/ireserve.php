@@ -1,8 +1,33 @@
 <?php
 
-$pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 
-					'b5SpPpOe8B9CGb976YcQbm5nwiFCtVwV',
-					'v1D50EttDgOqwNaRmmLccqDPRbLgtef2oLujxOSx9N7n2' );
+$phone_def = array(	
+	array('MGAA2ZP/A', '+GO 16'),
+	array('MGA92ZP/A', '+SV 16'),
+	array('MGA82ZP/A', '+GY 16'), 
+	array('MGAK2ZP/A', '+GO 64'),
+	array('MGAJ2ZP/A', '+SV 64'),
+	array('MGAH2ZP/A', '+GY 64'), 
+	array('MGAF2ZP/A', '+GO T8'),
+	array('MGAE2ZP/A', '+SV T8'),
+	array('MGAC2ZP/A', '+GY T8'), 
+	array('MG492ZP/A', '-GO 16'),
+	array('MG482ZP/A', '-SV 16'),
+	array('MG472ZP/A', '-GY 16'), 
+	array('MG4J2ZP/A', '-GO 64'),
+	array('MG4H2ZP/A', '-SV 64'),
+	array('MG4F2ZP/A', '-GY 64'), 
+	array('MG4E2ZP/A', '-GO T8'),
+	array('MG4C2ZP/A', '-SV T8'),
+	array('MG4A2ZP/A', '-GY T8')
+);
+
+$store_def = array (
+	array('R485', 'FW'),
+	array('R409', 'CWB'),
+	array('R428', 'IFC'),
+);
+
+$pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k' );
 
 $pushUrl = 'https://api.pushbullet.com/v2/pushes';
 $debug = false || ($_GET['debug'] == 1);
@@ -12,27 +37,26 @@ $json = file_get_contents('https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone
 $obj = json_decode($json, true);
 $hit = false;
 
-foreach($obj as $store) {
-	foreach($store as $phone) {
+foreach($store_def as $store) {
+	$offers = $obj->{$store[0]};
+	$pushMsg = '';
 
-		if($debug) {
-			var_dump($phone);
+	foreach($phone_def as $phone) {
+		if($offers->{$phone[0]}) {
+			$pushMsg .= $phone[0] . ' ';
 		}
 
-		if($phone) {
-			foreach ($pushKeys as $pushKey) {
-				$queryData['type'] = 'link';
-				$queryData['title'] = 'iReserve Opens';
-				$queryData['url'] = 'https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone';
-				push_content($pushUrl, $pushKey, 'POST', $queryData);
-			}
-			$hit = true;
-			break;
+		if($debug) {
+			var_dump($offers->{$phone[0]});
 		}
 	}
 
-	if($hit) {
-		break;
+	if($pushMsg !== '') {
+		$pushMsg = $store[1] . ':' . $pushMsg;
+		$queryData['type'] = 'link';
+		$queryData['title'] = $pushMsg;
+		$queryData['url'] = 'https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone';
+		push_content($pushUrl, $pushKey, 'POST', $queryData);
 	}
 }
 
