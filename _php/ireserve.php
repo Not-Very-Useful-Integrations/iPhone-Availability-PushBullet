@@ -27,11 +27,7 @@ $store_def = array (
 	array('R428', 'IFC')
 );
 
-$pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 
-					'b5SpPpOe8B9CGb976YcQbm5nwiFCtVwV',
-					'v1D50EttDgOqwNaRmmLccqDPRbLgtef2oLujxOSx9N7n2',
-					'HjClrqRzVSPINuJNkqta2kgEvEmGo9j7',
-					'ZIN4eHIi4bxANrbftKsy2LCRIpcLA6Sg' );
+$pushKeys = array(	'xxx' );
 
 $pushUrl = 'https://api.pushbullet.com/v2/pushes';
 $debug = false || ($_GET['debug'] == 1);
