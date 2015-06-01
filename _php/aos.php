@@ -87,9 +87,7 @@ $arg2 = array(	array('MGAC2ZP', 'iP 6+ Grey 128G'),
 				array('MG492ZP', 'iP 6 Gold 16G')
 			);
 
-$pushKeys = array(	'v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 
-					'b5SpPpOe8B9CGb976YcQbm5nwiFCtVwV',
-					'v1D50EttDgOqwNaRmmLccqDPRbLgtef2oLujxOSx9N7n2' );
+$pushKeys = array(	'xxx' );
 
 $pushUrl = 'https://api.pushbullet.com/v2/pushes';
 $debug = false || ($_GET['debug'] == 1);
