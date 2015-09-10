@@ -67,25 +67,32 @@ function joinPaths() {
 $baseurl = 'http://store.apple.com/hk/buy-%s/%s?cppart=UNLOCKED/WW&product=%s/A&step=accessories';
 $arg0 = 'iphone';
 $arg1 = 'iphone6';
-$arg2 = array(	array('MGAC2ZP', 'iP 6+ Grey 128G'), 
-				array('MGAE2ZP', 'iP 6+ Silver 128G'),
-				array('MGAF2ZP', 'iP 6+ Gold 128G'),
-				array('MGAH2ZP', 'iP 6+ Grey 64G'), 
-				array('MGAJ2ZP', 'iP 6+ Silver 64G'),
-				array('MGAK2ZP', 'iP 6+ Gold 64G'),
-				array('MGA82ZP', 'iP 6+ Grey 16G'), 
-				array('MGA92ZP', 'iP 6+ Silver 16G'),
-				array('MGAA2ZP', 'iP 6+ Gold 16G'),
-				array('MG4A2ZP', 'iP 6 Grey 128G'), 
-				array('MG4C2ZP', 'iP 6 Silver 128G'),
-				array('MG4E2ZP', 'iP 6 Gold 128G'),
-				array('MG4F2ZP', 'iP 6 Grey 64G'), 
-				array('MG4H2ZP', 'iP 6 Silver 64G'),
-				array('MG4J2ZP', 'iP 6 Gold 64G'),
-				array('MG472ZP', 'iP 6 Grey 16G'), 
-				array('MG482ZP', 'iP 6 Silver 16G'),
-				array('MG492ZP', 'iP 6 Gold 16G')
-			);
+$arg2 = array(
+		array('MKQK2ZP','4.7 silver 16gb'),
+		array('MKQL2ZP','4.7 gold 16gb'),
+		array('MKQJ2ZP','4.7 gray 16gb'),
+		array('MKQM2ZP','4.7 rose 16gb'),
+		array('MKQP2ZP','4.7 silver 64gb'),
+		array('MKQQ2ZP','4.7 gold 64gb'),
+		array('MKQN2ZP','4.7 gray 64gb'),
+		array('MKQR2ZP','4.7 rose 64gb'),
+		array('MKQU2ZP','4.7 silver 128gb'),
+		array('MKQV2ZP','4.7 gold 128gb'),
+		array('MKQT2ZP','4.7 gray 128gb'),
+		array('MKQW2ZP','4.7 rose 128gb'),
+		array('MKU22ZP','5.5 silver 16gb'),
+		array('MKU32ZP','5.5 gold 16gb'),
+		array('MKU12ZP','5.5 gray 16gb'),
+		array('MKU52ZP','5.5 rose 16gb'),
+		array('MKU72ZP','5.5 silver 64gb'),
+		array('MKU82ZP','5.5 gold 64gb'),
+		array('MKU62ZP','5.5 gray 64gb'),
+		array('MKU92ZP','5.5 rose 64gb'),
+		array('MKUE2ZP','5.5 silver 128gb'),
+		array('MKUF2ZP','5.5 gold 128gb'),
+		array('MKUD2ZP','5.5 gray 128gb'),
+		array('MKUG2ZP','5.5 rose 128gb')
+	);
 
 $pushKeys = array(	'xxx' );
 
