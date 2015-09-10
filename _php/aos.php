@@ -66,7 +66,7 @@ function joinPaths() {
 
 $baseurl = 'http://store.apple.com/hk/buy-%s/%s?cppart=UNLOCKED/WW&product=%s/A&step=accessories';
 $arg0 = 'iphone';
-$arg1 = 'iphone6';
+$arg1 = 'iphone6s';
 $arg2 = array(
 		array('MKQK2ZP','4.7 silver 16gb'),
 		array('MKQL2ZP','4.7 gold 16gb'),
