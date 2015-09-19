@@ -1,36 +1,70 @@
 <?php
 
 $phone_def = array(	
-	array('MGAA2ZP/A', '+GO S'),
-	array('MGA92ZP/A', '+SV S'),
-	array('MGA82ZP/A', '+GY S'), 
-	array('MGAK2ZP/A', '+GO M'),
-	array('MGAJ2ZP/A', '+SV M'),
-	array('MGAH2ZP/A', '+GY M'), 
-	array('MGAF2ZP/A', '+GO L'),
-	array('MGAE2ZP/A', '+SV L'),
-	array('MGAC2ZP/A', '+GY L'), 
-	array('MG492ZP/A', '-GO S'),
-	array('MG482ZP/A', '-SV S'),
-	array('MG472ZP/A', '-GY S'), 
-	array('MG4J2ZP/A', '-GO M'),
-	array('MG4H2ZP/A', '-SV M'),
-	array('MG4F2ZP/A', '-GY M'), 
-	array('MG4E2ZP/A', '-GO L'),
-	array('MG4C2ZP/A', '-SV L'),
-	array('MG4A2ZP/A', '-GY L')
+	array('MKQK2ZP/A','4.7 silver 16gb'),
+	array('MKQL2ZP/A','4.7 gold 16gb'),
+	array('MKQJ2ZP/A','4.7 gray 16gb'),
+	array('MKQM2ZP/A','4.7 rose 16gb'),
+	array('MKQP2ZP/A','4.7 silver 64gb'),
+	array('MKQQ2ZP/A','4.7 gold 64gb'),
+	array('MKQN2ZP/A','4.7 gray 64gb'),
+	array('MKQR2ZP/A','4.7 rose 64gb'),
+	array('MKQU2ZP/A','4.7 silver 128gb'),
+	array('MKQV2ZP/A','4.7 gold 128gb'),
+	array('MKQT2ZP/A','4.7 gray 128gb'),
+	array('MKQW2ZP/A','4.7 rose 128gb'),
+	array('MKU22ZP/A','5.5 silver 16gb'),
+	array('MKU32ZP/A','5.5 gold 16gb'),
+	array('MKU12ZP/A','5.5 gray 16gb'),
+	array('MKU52ZP/A','5.5 rose 16gb'),
+	array('MKU72ZP/A','5.5 silver 64gb'),
+	array('MKU82ZP/A','5.5 gold 64gb'),
+	array('MKU62ZP/A','5.5 gray 64gb'),
+	array('MKU92ZP/A','5.5 rose 64gb'),
+	array('MKUE2ZP/A','5.5 silver 128gb'),
+	array('MKUF2ZP/A','5.5 gold 128gb'),
+	array('MKUD2ZP/A','5.5 gray 128gb'),
+	array('MKUG2ZP/A','5.5 rose 128gb')
 );
+
+$pushKeys = array();
+
+$pushUrl = 'https://api.pushbullet.com/v2/pushes';
+$debug = false || ($_GET['debug'] == 1);
 
 $store_def = array (
 	array('R485', 'KLT'),
 	array('R409', 'CWB'),
-	array('R428', 'IFC')
+	array('R428', 'IFC'),
+	array('R499', 'TST')
 );
 
-$pushKeys = array(	'xxx' );
-
-$pushUrl = 'https://api.pushbullet.com/v2/pushes';
-$debug = false || ($_GET['debug'] == 1);
+if($debug) {
+	// mainland store IDs for testing
+	// https://reserve.cdn-apple.com/CN/zh_CN/reserve/iPhone/availability.json
+	$store_def = array (
+		array('R448', 'R448'),
+		array('R534', 'R534'),
+		array('R479', 'R479'),
+		array('R502', 'R502'),
+		array('R359', 'R359'),
+		array('R532', 'R532'),
+		array('R389', 'R389'),
+		array('R401', 'R401'),
+		array('R643', 'R643'),
+		array('R574', 'R574'),
+		array('R388', 'R388'),
+		array('R476', 'R476'),
+		array('R637', 'R637'),
+		array('R484', 'R484'),
+		array('R572', 'R572'),
+		array('R573', 'R573'),
+		array('R320', 'R320'),
+		array('R471', 'R471'),
+		array('R480', 'R480'),
+		array('R390', 'R390')
+	);
+}
 
 // GOGOGO
 $json = file_get_contents('https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json');
@@ -47,7 +81,7 @@ foreach($store_def as $store) {
 	$offers = $obj[$store[0]];
 
 	foreach($phone_def as $phone) {
-		if($offers[$phone[0]]) {
+		if($offers[$phone[0]] && $offers[$phone[0]] !== 'CONTRACT' && $offers[$phone[0]] !== 'NONE') {
 			$pushMsg = $pushMsg . $phone[1] . ' ';
 		}
 
@@ -60,7 +94,7 @@ foreach($store_def as $store) {
 		foreach ($pushKeys as $pushKey) {
 			$queryData['type'] = 'link';
 			$queryData['title'] = $store[1] . " " . $pushMsg;
-			$queryData['url'] = 'https://reserve-hk.apple.com/HK/zh_HK/reserve/iPhone';
+			$queryData['url'] = 'http://itradehk.net/news_view/744/1';
 			push_content($pushUrl, $pushKey, 'POST', $queryData);
 		}
 	}
