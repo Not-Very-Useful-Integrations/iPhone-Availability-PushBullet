@@ -39,9 +39,12 @@ $store_def = array (
 	array('R499', 'TST')
 );
 
+$jsonUrl = 'https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json';
+
 if($debug) {
 	// mainland store IDs for testing
-	// https://reserve.cdn-apple.com/CN/zh_CN/reserve/iPhone/availability.json
+	$jsonUrl = 'https://reserve.cdn-apple.com/CN/zh_CN/reserve/iPhone/availability.json';
+
 	$store_def = array (
 		array('R448', 'R448'),
 		array('R534', 'R534'),
@@ -67,7 +70,7 @@ if($debug) {
 }
 
 // GOGOGO
-$json = file_get_contents('https://reserve.cdn-apple.com/HK/en_HK/reserve/iPhone/availability.json');
+$json = file_get_contents($jsonUrl);
 $obj = json_decode($json, true);
 $hit = false;
 
