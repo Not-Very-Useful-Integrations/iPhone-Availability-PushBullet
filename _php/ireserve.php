@@ -1,30 +1,32 @@
 <?php
 
-$phone_def = array(	
-	array('MKQK2ZP/A','4.7 silver 16gb'),
-	array('MKQL2ZP/A','4.7 gold 16gb'),
-	array('MKQJ2ZP/A','4.7 gray 16gb'),
-	array('MKQM2ZP/A','4.7 rose 16gb'),
-	array('MKQP2ZP/A','4.7 silver 64gb'),
-	array('MKQQ2ZP/A','4.7 gold 64gb'),
-	array('MKQN2ZP/A','4.7 gray 64gb'),
-	array('MKQR2ZP/A','4.7 rose 64gb'),
-	array('MKQU2ZP/A','4.7 silver 128gb'),
-	array('MKQV2ZP/A','4.7 gold 128gb'),
-	array('MKQT2ZP/A','4.7 gray 128gb'),
-	array('MKQW2ZP/A','4.7 rose 128gb'),
-	array('MKU22ZP/A','5.5 silver 16gb'),
-	array('MKU32ZP/A','5.5 gold 16gb'),
-	array('MKU12ZP/A','5.5 gray 16gb'),
+// http://stackoverflow.com/questions/4901335/cronjob-every-minute
+$phone_def = array(
+	array('ML7C2CH/A','ireserve test'),
 	array('MKU52ZP/A','5.5 rose 16gb'),
-	array('MKU72ZP/A','5.5 silver 64gb'),
-	array('MKU82ZP/A','5.5 gold 64gb'),
-	array('MKU62ZP/A','5.5 gray 64gb'),
 	array('MKU92ZP/A','5.5 rose 64gb'),
-	array('MKUE2ZP/A','5.5 silver 128gb'),
+	array('MKUG2ZP/A','5.5 rose 128gb'),
+	array('MKU32ZP/A','5.5 gold 16gb'),
+	array('MKU82ZP/A','5.5 gold 64gb'),
 	array('MKUF2ZP/A','5.5 gold 128gb'),
+	array('MKQM2ZP/A','4.7 rose 16gb'),
+	array('MKQR2ZP/A','4.7 rose 64gb'),
+	array('MKQW2ZP/A','4.7 rose 128gb'),
+	array('MKQL2ZP/A','4.7 gold 16gb'),
+	array('MKQQ2ZP/A','4.7 gold 64gb'),
+	array('MKQV2ZP/A','4.7 gold 128gb'),
+	array('MKU22ZP/A','5.5 silver 16gb'),
+	array('MKU72ZP/A','5.5 silver 64gb'),
+	array('MKUE2ZP/A','5.5 silver 128gb'),
+	array('MKU12ZP/A','5.5 gray 16gb'),
+	array('MKU62ZP/A','5.5 gray 64gb'),
 	array('MKUD2ZP/A','5.5 gray 128gb'),
-	array('MKUG2ZP/A','5.5 rose 128gb')
+	array('MKQK2ZP/A','4.7 silver 16gb'),
+	array('MKQP2ZP/A','4.7 silver 64gb'),
+	array('MKQU2ZP/A','4.7 silver 128gb'),
+	array('MKQJ2ZP/A','4.7 gray 16gb'),
+	array('MKQN2ZP/A','4.7 gray 64gb'),
+	array('MKQT2ZP/A','4.7 gray 128gb')
 );
 
 $pushKeys = array();
@@ -80,25 +82,21 @@ foreach($store_def as $store) {
 		var_dump($store[0]);
 	}
 
-	$pushMsg = '';
 	$offers = $obj[$store[0]];
 
 	foreach($phone_def as $phone) {
 		if($offers[$phone[0]] && $offers[$phone[0]] !== 'CONTRACT' && $offers[$phone[0]] !== 'NONE') {
-			$pushMsg = $pushMsg . $phone[1] . ' ';
+
+			foreach ($pushKeys as $pushKey) {
+				$queryData['type'] = 'link';
+				$queryData['title'] = $store[1] . " " . $phone[1];
+				$queryData['url'] = 'https://reserve.cdn-apple.com/HK/zh_HK/reserve/iPhone/availability?channel=1&appleCare=N&iPP=N&partNumber=' . $phone[0] . '&returnURL=http%3A%2F%2Fwww.apple.com%2Fhk%2Fshop%2Fbuy-iphone%2Fiphone6s';
+				push_content($pushUrl, $pushKey, 'POST', $queryData);
+			}
 		}
 
 		if($debug) {	
 			var_dump($offers[$phone[0]]);
-		}
-	}
-
-	if($pushMsg !== '') {
-		foreach ($pushKeys as $pushKey) {
-			$queryData['type'] = 'link';
-			$queryData['title'] = $store[1] . " " . $pushMsg;
-			$queryData['url'] = 'http://itradehk.net/news_view/744/1';
-			push_content($pushUrl, $pushKey, 'POST', $queryData);
 		}
 	}
 }
