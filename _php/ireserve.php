@@ -29,7 +29,7 @@ $phone_def = array(
 	// array('MKQT2ZP/A','4.7 gray 128gb')
 );
 
-$pushKeys = array('v16KqXNi5pRkpQUX47mXZ3iuTMcQFmNAZoujxBr1bny5k', 'v1D50EttDgOqwNaRmmLccqDPRbLgtef2oLujxOSx9N7n2', 'BgYmPH6NuelCe8sK2k4OVn0MITEaeecm');
+$pushKeys = array();
 
 $pushUrl = 'https://api.pushbullet.com/v2/pushes';
 $debug = false || ($_GET['debug'] == 1);
