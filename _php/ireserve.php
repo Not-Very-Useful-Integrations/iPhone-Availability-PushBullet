@@ -5,7 +5,7 @@ $phone_def = array(
 	array('ML7C2CH/A','ireserve test'),
 	array('MKU52ZP/A','5.5 rose 16gb'),
 	array('MKU92ZP/A','5.5 rose 64gb'),
-	array('MKUG2ZP/A','5.5 rose 128gb'),
+	array('MKUG2ZP/A','5.5 rose 128gb')
 	// array('MKQM2ZP/A','4.7 rose 16gb'),
 	// array('MKQR2ZP/A','4.7 rose 64gb'),
 	// array('MKQW2ZP/A','4.7 rose 128gb'),
