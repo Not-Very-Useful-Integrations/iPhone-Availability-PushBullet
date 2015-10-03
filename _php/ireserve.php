@@ -3,26 +3,26 @@
 // http://stackoverflow.com/questions/4901335/cronjob-every-minute
 $phone_def = array(
 	array('ML7C2CH/A','ireserve test'),
-	array('MKU52ZP/A','5.5 rose 16gb'),
+	// array('MKU52ZP/A','5.5 rose 16gb'),
 	array('MKU92ZP/A','5.5 rose 64gb'),
-	array('MKUG2ZP/A','5.5 rose 128gb')
+	// array('MKUG2ZP/A','5.5 rose 128gb')
 	// array('MKQM2ZP/A','4.7 rose 16gb'),
 	// array('MKQR2ZP/A','4.7 rose 64gb'),
 	// array('MKQW2ZP/A','4.7 rose 128gb'),
 	// array('MKU32ZP/A','5.5 gold 16gb'),
-	// array('MKU82ZP/A','5.5 gold 64gb'),
+	array('MKU82ZP/A','5.5 gold 64gb'),
 	// array('MKUF2ZP/A','5.5 gold 128gb'),
 	// array('MKQL2ZP/A','4.7 gold 16gb'),
 	// array('MKQQ2ZP/A','4.7 gold 64gb'),
 	// array('MKQV2ZP/A','4.7 gold 128gb'),
 	// array('MKU22ZP/A','5.5 silver 16gb'),
-	// array('MKU72ZP/A','5.5 silver 64gb'),
+	array('MKU72ZP/A','5.5 silver 64gb'),
 	// array('MKUE2ZP/A','5.5 silver 128gb'),
 	// array('MKU12ZP/A','5.5 gray 16gb'),
-	// array('MKU62ZP/A','5.5 gray 64gb'),
+	array('MKU62ZP/A','5.5 gray 64gb'),
 	// array('MKUD2ZP/A','5.5 gray 128gb')
 	// array('MKQK2ZP/A','4.7 silver 16gb'),
-	// array('MKQP2ZP/A','4.7 silver 64gb'),
+	// array('MKQP2ZP/A','4.7 silver 64gb')
 	// array('MKQU2ZP/A','4.7 silver 128gb'),
 	// array('MKQJ2ZP/A','4.7 gray 16gb'),
 	// array('MKQN2ZP/A','4.7 gray 64gb'),
